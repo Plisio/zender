@@ -1,0 +1,20 @@
+{
+    "name": "Plisio Payment Gateway",
+    "directory": "plisio-gateway",
+    "version": "1.0.0",
+    "description": "Accept many cryptocurrencies on your Zender platform",
+    "author": "Plisio",
+    "author_url": "https://plisio.net",
+    "actions": {},
+    "data": {
+        "apikey": {
+            "label": "API Key",
+            "type": "text",
+            "description": "Plisio Secret Key",
+            "value": ""
+        }
+    },
+    "assets": [
+        "assets/plugin.js"
+    ]
+}

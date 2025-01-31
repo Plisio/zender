@@ -102,7 +102,7 @@ return [
         if(!$user)
             response(500);
 
-        if(($request["status"] != "completed") || ($request["status"] != "mismatch"))
+        if(($request["status"] != "completed") && ($request["status"] != "mismatch"))
             response(500);
 
         $this->system->delete($getItem["uid"], false, "orders");

@@ -27,7 +27,7 @@ return [
                 "order_name" => "Order # " . $generatedNumber,
                 "source_amount" => $order["data"]["original_price"],
                 "source_currency" => $order["data"]["base_currency"],
-                "callback_url" => site_url("plugin?name={$request["name"]}&hash={$order["data"]["user"]["hash"]}&action=callback&json=true", true),
+                "callback_url" => site_url("plugin?name={$request["name"]}&hash={$order["data"]["user"]["hash"]}&action=callback", true),
                 "cancel_url" => site_url("plugin?name={$request["name"]}&hash={$order["data"]["user"]["hash"]}&action=cancel", true),
                 "success_url" => site_url("plugin?name={$request["name"]}&hash={$order["data"]["user"]["hash"]}&action=success", true),
                 "email" => $order["data"]["user"]["email"],
@@ -87,7 +87,7 @@ return [
         $this->smarty->display(template . "/footer.tpl");
     },
     "callback" => function(&$request){
-        if(!isset($request["hash"], $request["txn_id"], $request["json"]))
+        if(!isset($request["hash"], $request["txn_id"]))
             response(500);
 
         $getItem = $this->system->getOrder($request["hash"], "hash");
